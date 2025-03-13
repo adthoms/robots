@@ -12,6 +12,8 @@
     <arg name="lite"                   default="false" /> <!-- Set to true if you're using CHAMP lite version. Only useful for microcontrollers. -->
     <arg name="close_loop_odom"        default="false" /> <!-- Set to true if you want to calculate odometry using close loop. This is auto-set to true from gazebo.launch. -->
     <arg name="publish_foot_contacts"  default="true" /> <!-- Set to true if you want the controller to publish the foot contact states. This is auto-set to false from gazebo.launch. -->
+    <arg name="publish_odom_tf"        default="true" /> <!-- Set to true  if you want the controller to publish the foot print to odom transform. This is auto-set to true from gazebo.launch. -->
+    <arg name="publish_local_odom_tf"  default="true" /> <!-- Set to true  if you want the controller to publish the base to foot print transform. This is auto-set to true from gazebo.launch. -->
     <arg name="publish_joint_control"  default="true" /> <!-- Set to true if you want the controller to publish the joint_states topic. This is auto-set to false from gazebo.launch. -->
     <arg name="laser"                  default="sim"/> <!-- Set to the 2D LIDAR you're using. See https://github.com/chvmp/champ/tree/master/champ_bringup/launch/include/laser .-->
     <arg name="joint_controller_topic" default="joint_group_position_controller/command" /> <!-- Change to remap command topic for actuator controller (ROS control).  -->
@@ -36,6 +38,8 @@
         <arg name="joint_controller_topic" value="$(arg joint_controller_topic)" />
         <arg name="hardware_connected"     value="$(arg hardware_connected)" />
         <arg name="publish_foot_contacts"  value="$(arg publish_foot_contacts)" />
+        <arg name="publish_odom_tf"        value="$(arg publish_odom_tf)" />
+        <arg name="publish_local_odom_tf"  value="$(arg publish_local_odom_tf)" />
         <arg name="publish_joint_control"  value="$(arg publish_joint_control)" />
         <arg name="close_loop_odom"        value="$(arg close_loop_odom)" />
     </include>
